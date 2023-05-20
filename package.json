@@ -8,7 +8,11 @@
     "pre-commit": "lint-staged",
     "start": "nodemon ./index.js"
   },
-  "keywords": ["express","mongodb","mongooose"],
+  "keywords": [
+    "express",
+    "mongodb",
+    "mongooose"
+  ],
   "author": "Ian dos Santos Alves",
   "license": "ISC",
   "devDependencies": {
@@ -26,6 +30,7 @@
     ]
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^7.2.0"
   }
