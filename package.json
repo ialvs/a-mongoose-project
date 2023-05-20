@@ -1,0 +1,32 @@
+{
+  "name": "a-mongoose-project",
+  "version": "1.0.0",
+  "description": "A mongoose project to practice making a RESTful API with a NoSQL database.",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "husky install",
+    "pre-commit": "lint-staged",
+    "start": "nodemon ./index.js"
+  },
+  "keywords": ["express","mongodb","mongooose"],
+  "author": "Ian dos Santos Alves",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.41.0",
+    "eslint-config-prettier": "^8.8.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "nodemon": "^2.0.22",
+    "prettier": "2.8.8"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write --ignore-unknown"
+    ]
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.2.0"
+  }
+}
