@@ -16,9 +16,9 @@ module.exports = {
             res.status(400).json({ messagem: "User course must be informed" });
         }
 
-        if (!active) {
+        if (typeof active !== "boolean") {
             res.status(400).json({
-                messagem: "User availability must be informed",
+                messagem: "User availability must be informed (as true/false)",
             });
         }
 
