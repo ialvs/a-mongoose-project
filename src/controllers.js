@@ -12,9 +12,9 @@ module.exports = {
 
         try {
             await User.create(user);
-            res.status(201).send();
+            return res.status(201).send();
         } catch (error) {
-            res.status(500).json({ error: error });
+            return res.status(500).json({ error: error });
         }
     },
 };
