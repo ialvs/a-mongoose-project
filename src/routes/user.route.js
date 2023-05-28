@@ -4,6 +4,6 @@ const { validatePostedUser } = require("../middlewares");
 
 const routes = express.Router();
 
-routes.post("/user", validatePostedUser, createAnUser);
+routes.post("/", validatePostedUser, createAnUser);
 
 module.exports = routes;

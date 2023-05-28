@@ -8,7 +8,7 @@ const port = process.env.port;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(userRoute);
+app.use("/user", userRoute);
 
 const connectionString = `mongodb+srv://${process.env.USER_MONGODB}:${process.env.PASSWORD_MONGODB}@cluster0.4qh4koq.mongodb.net/`;
 
