@@ -4,16 +4,18 @@ const {
     getAllUsers,
     getUserById,
     replaceUser,
+    updateUser,
 } = require("../controllers/user.controller");
 const { validatePostedUser } = require("../middlewares/user.middleware");
 
 const routes = express.Router();
 
+routes.post("/", validatePostedUser, createAnUser);
+
 routes.get("/", getAllUsers);
 routes.get("/:id", getUserById);
 
-routes.post("/", validatePostedUser, createAnUser);
-
+routes.patch("/:idToBeUpdated", updateUser);
 routes.put("/:idToBeReplaced", validatePostedUser, replaceUser);
 
 module.exports = routes;
