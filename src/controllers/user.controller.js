@@ -41,4 +41,23 @@ module.exports = {
             return res.status(500).json({ error: error });
         }
     },
+
+    replaceUser: async (req, res) => {
+        const { name, password, course, active } = req.body;
+        const { idToBeReplaced } = req.params;
+
+        const updatedUser = {
+            name,
+            password,
+            course,
+            active,
+        };
+
+        try {
+            await User.findOneAndReplace({ _id: idToBeReplaced }, updatedUser);
+            return res.status(200).send();
+        } catch (error) {
+            return res.status(500).json({ error: error });
+        }
+    },
 };
