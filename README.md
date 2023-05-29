@@ -15,3 +15,7 @@ A API permite as operações CRUD com o modelo User, de forma básica.
 1. USER_MONGODB = usuário fornecido pelo Atlas.
 1. PASSWORD_MONGODB = senha fornecida pelo Atlas.
 1. PORT = porta que irá escutar as requisições ao servidor.
+
+# Referências
+
+1. [ Crie uma API RESTful com Node.js e MongoDB | CRUD com Node, Express e Mongoose ](https://www.youtube.com/watch?v=K5QaTfE5ylk)
