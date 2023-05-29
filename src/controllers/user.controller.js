@@ -55,7 +55,7 @@ module.exports = {
 
         try {
             await User.findOneAndReplace({ _id: idToBeReplaced }, updatedUser);
-            return res.status(200).json({ message: "Usuário substituído" });
+            return res.status(200).json({ message: "Usuário substituído." });
         } catch (error) {
             return res.status(500).json({ error: error });
         }
@@ -85,7 +85,19 @@ module.exports = {
 
         try {
             await User.findByIdAndUpdate(idToBeUpdated, user);
-            return res.status(200).json({ message: "Usuário atualizado" });
+            return res.status(200).json({ message: "Usuário atualizado." });
+        } catch (error) {
+            return res.status(500).json({ error: error });
+        }
+    },
+
+    deleteUser: async (req, res) => {
+        const { id } = req.params;
+        try {
+            await User.findByIdAndDelete(id);
+            return res
+                .status(200)
+                .json({ message: "Usuário deletado com sucesso." });
         } catch (error) {
             return res.status(500).json({ error: error });
         }
