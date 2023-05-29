@@ -60,4 +60,34 @@ module.exports = {
             return res.status(500).json({ error: error });
         }
     },
+
+    updateUser: async (req, res) => {
+        const { name, password, course, active } = req.body;
+        const { idToBeUpdated } = req.params;
+
+        const user = {};
+
+        if (name) {
+            user.name = name;
+        }
+
+        if (password) {
+            user.password = password;
+        }
+
+        if (course) {
+            user.course = course;
+        }
+
+        if (typeof active == "boolean") {
+            user.active = active;
+        }
+
+        try {
+            await User.findByIdAndUpdate(idToBeUpdated, user);
+            return res.status(200).send();
+        } catch (error) {
+            return res.status(500).json({ error: error });
+        }
+    },
 };
