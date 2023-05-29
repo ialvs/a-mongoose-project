@@ -54,7 +54,17 @@ module.exports = {
         };
 
         try {
-            await User.findOneAndReplace({ _id: idToBeReplaced }, updatedUser);
+            const user = await User.findOneAndReplace(
+                { _id: idToBeReplaced },
+                updatedUser
+            );
+
+            if (!user) {
+                return res
+                    .status(404)
+                    .json({ message: "Usuário não encontrado." });
+            }
+
             return res.status(200).json({ message: "Usuário substituído." });
         } catch (error) {
             return res.status(500).json({ error: error });
@@ -84,7 +94,17 @@ module.exports = {
         }
 
         try {
-            await User.findByIdAndUpdate(idToBeUpdated, user);
+            const updatedUser = await User.findByIdAndUpdate(
+                idToBeUpdated,
+                user
+            );
+
+            if (!updatedUser) {
+                return res
+                    .status(404)
+                    .json({ message: "Usuário não encontrado." });
+            }
+
             return res.status(200).json({ message: "Usuário atualizado." });
         } catch (error) {
             return res.status(500).json({ error: error });
@@ -94,7 +114,14 @@ module.exports = {
     deleteUser: async (req, res) => {
         const { id } = req.params;
         try {
-            await User.findByIdAndDelete(id);
+            const user = await User.findByIdAndDelete(id);
+
+            if (!user) {
+                return res
+                    .status(404)
+                    .json({ message: "Usuário não encontrado." });
+            }
+
             return res
                 .status(200)
                 .json({ message: "Usuário deletado com sucesso." });
