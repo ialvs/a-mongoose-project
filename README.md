@@ -12,8 +12,7 @@ A API permite as operações CRUD com o modelo User, de forma básica.
 
 # Variáveis do .env
 
-1. USER_MONGODB = usuário fornecido pelo Atlas.
-1. PASSWORD_MONGODB = senha fornecida pelo Atlas.
+1. CONNECTION_STRING = string de conexão do Mongo.
 1. PORT = porta que irá escutar as requisições ao servidor.
 
 # Referências
